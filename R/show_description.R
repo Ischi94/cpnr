@@ -6,7 +6,7 @@
 #' @inheritParams show_tutorials
 #'
 #' @examples
-#' show_description(tutorial = "My first tutorial")
+#' show_description(tutorial = "first_tutorial")
 #'
 #' @return \code{show_description} will return a \code{character} string with a
 #' detailed description of the focal tutorial.
