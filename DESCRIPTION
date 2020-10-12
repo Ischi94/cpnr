@@ -16,5 +16,6 @@ LazyData: true
 Imports: 
     tibble,
     rmarkdown,
-    dplyr
+    dplyr,
+    renv
 RoxygenNote: 7.1.1
