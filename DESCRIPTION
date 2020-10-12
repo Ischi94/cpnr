@@ -14,5 +14,6 @@ License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    tibble
+    tibble,
+    rmarkdown
 RoxygenNote: 7.1.1

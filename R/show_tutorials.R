@@ -31,7 +31,7 @@ show_tutorials <- function(package = "cpnr"){
     yaml_front_matter[i, 2] <- yaml_dummy$description
   }
 
-  yaml_front_matter <- as_tibble(yaml_front_matter)
+  yaml_front_matter <- tibble::as_tibble(yaml_front_matter)
 
   yaml_front_matter$description <- sub("\\..*", "", yaml_front_matter$description)
 
