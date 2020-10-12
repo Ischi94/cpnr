@@ -14,7 +14,7 @@
 #'
 #' @export
 show_tutorials <- function(package = "cpnr"){
-  tutorials_dir <- system.file("tutorials", package = "cpnr")
+  tutorials_dir <- system.file("tutorials", package = package)
 
   tutorial_folders <- list.dirs(tutorials_dir, full.names = TRUE,
                                 recursive = FALSE)
