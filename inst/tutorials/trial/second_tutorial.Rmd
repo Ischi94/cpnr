@@ -1,5 +1,5 @@
 ---
-title: "My second tutorial"
+title: "second_tutorial"
 output: learnr::tutorial
 runtime: shiny_prerendered
 description: "Just for trial. Adjust for printing."
