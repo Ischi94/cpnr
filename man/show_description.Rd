@@ -4,12 +4,12 @@
 \alias{show_description}
 \title{Show tutorial description}
 \usage{
-show_description(package = "cpnr", tutorial)
+show_description(tutorial, package = "cpnr")
 }
 \arguments{
-\item{package}{Name of package, currently only cpnr}
-
 \item{tutorial}{Name of tutorial}
+
+\item{package}{Name of package, currently only cpnr}
 }
 \value{
 \code{show_description} will return a \code{character} string with a

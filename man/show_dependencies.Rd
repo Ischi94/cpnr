@@ -4,12 +4,12 @@
 \alias{show_dependencies}
 \title{Show tutorial dependencies}
 \usage{
-show_dependencies(package = "cpnr", tutorial)
+show_dependencies(tutorial, package = "cpnr")
 }
 \arguments{
-\item{package}{Name of package, currently only cpnr}
-
 \item{tutorial}{Name of tutorial}
+
+\item{package}{Name of package, currently only cpnr}
 }
 \value{
 \code{show_dependencies} will return a \code{character} string with all
