@@ -23,17 +23,22 @@ show_dependencies <- function(package = "cpnr", tutorial){
   dir_rmd_files <- dir(tutorial_folders, pattern = "\\.Rmd$", recursive = FALSE,
                        full.names = TRUE)
 
-  dir_rmd_tutorial <- dir_rmd_files[grep("second_tutorial", dir_rmd_files)]
+  dir_rmd_tutorial <- dir_rmd_files[grep(tutorial, dir_rmd_files)]
+
+  if (length(dir_rmd_tutorial) == 0) {
+    return(paste0("No tutorial found with name: ", tutorial))
+  }
 
   deps <- renv::dependencies(dir_rmd_tutorial, quiet = TRUE)
 
   if (is.null(deps)) {
-      return(paste("No dependancies in the tutorial", tutorial))
+      return(paste("No dependencies in the tutorial", tutorial))
   }
 
   deps <- sort(unique(deps$Package))
 
   print(deps)
 }
+
 
 
