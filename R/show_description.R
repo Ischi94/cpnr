@@ -2,19 +2,20 @@
 #'
 #' Display the description of the specified tutorial in the cpnr package.
 #'
-#' @param package Name of package, currently only cpnr
+#' @param tutorial Name of tutorial
+#' @inheritParams show_tutorials
 #'
 #' @examples
-#' show_tutorials()
+#' show_description(tutorial = "My first tutorial")
 #'
-#' @return \code{show_tutorials} will return a \code{data.frame} containing
-#' "title" and "description".
+#' @return \code{show_description} will return a \code{character} string with a
+#' detailed description of the focal tutorial.
 #'
-#' @rdname show_tutorials
+#' @rdname show_description
 #'
 #' @export
-show_description <- function(package = "cpnr"){
-  tutorials_dir <- system.file("tutorials", package = "cpnr")
+show_description <- function(package = "cpnr", tutorial){
+  tutorials_dir <- system.file("tutorials", package = package)
 
   tutorial_folders <- list.dirs(tutorials_dir, full.names = TRUE,
                                 recursive = FALSE)
@@ -33,7 +34,11 @@ show_description <- function(package = "cpnr"){
 
   yaml_front_matter <- tibble::as_tibble(yaml_front_matter)
 
-  yaml_front_matter <- dplyr::filter(yaml_front_matter, title == "My first tutorial")
+  if (tutorial %in% yaml_front_matter$title == FALSE) {
+    return(paste0("No tutorial found with name: ", tutorial))
+  }
+
+  yaml_front_matter <- dplyr::filter(yaml_front_matter, title == tutorial)
 
   yaml_front_matter <- dplyr::select(yaml_front_matter, description)
 

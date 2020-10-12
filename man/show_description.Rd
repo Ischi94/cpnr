@@ -13,12 +13,12 @@ show_description(package = "cpnr", tutorial)
 }
 \value{
 \code{show_description} will return a \code{character} string with a
-detailled description of the focal tutorial.
+detailed description of the focal tutorial.
 }
 \description{
 Display the description of the specified tutorial in the cpnr package.
 }
 \examples{
-show_description()
+show_description(tutorial = "My first tutorial")
 
 }
