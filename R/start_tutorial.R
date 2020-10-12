@@ -5,7 +5,7 @@
 #'
 #' @inheritParams show_description
 #' @param shiny_args Additional arguments to forward to
-#' \code{\link[shiny::runApp]{runApp}}
+#' \href{https://shiny.rstudio.com/reference/shiny/latest/runApp.html}{shiny::runApp}
 #'
 #' @examples
 #' \dontrun{

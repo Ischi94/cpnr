@@ -12,7 +12,7 @@ start_tutorial(tutorial, package = "cpnr", shiny_args = NULL)
 \item{package}{Name of package, currently only cpnr}
 
 \item{shiny_args}{Additional arguments to forward to
-\code{\link[shiny::runApp]{runApp}}}
+\href{https://shiny.rstudio.com/reference/shiny/latest/runApp.html}{shiny::runApp}}
 }
 \description{
 Run a specified tutorial in the cpnr package.
