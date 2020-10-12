@@ -1,3 +1,18 @@
+#' Show available tutorials
+#'
+#' Display which tutorials are currently available in the cpnr package.
+#'
+#' @param package Name of package, currently only cpnr
+#'
+#' @examples
+#' show_tutorials()
+#'
+#' @return \code{show_tutorials} will return a \code{data.frame} containing
+#' "title" and "description".
+#'
+#' @rdname show_tutorials
+#'
+#' @export
 show_tutorials <- function(package = "cpnr"){
   tutorials_dir <- system.file("tutorials", package = "cpnr")
 
