@@ -14,7 +14,7 @@
 #' @rdname show_dependencies
 #'
 #' @export
-show_dependencies <- function(package = "cpnr", tutorial){
+show_dependencies <- function(tutorial, package = "cpnr"){
   tutorials_dir <- system.file("tutorials", package = package)
 
   tutorial_folders <- list.dirs(tutorials_dir, full.names = TRUE,

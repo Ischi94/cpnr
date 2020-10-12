@@ -1,5 +1,5 @@
 ---
-title: "first_tutoria"
+title: "first_tutorial"
 output: learnr::tutorial
 runtime: shiny_prerendered
 description: "Short statement. This is just a trial to see how much of this description gets printed in the end. This document is aimed to introduce the possibilities of an interactive tutorial using `rmarkdown` and the `learnr` package. We can embed code chunks from both r and python, making this format extremely versatile. "

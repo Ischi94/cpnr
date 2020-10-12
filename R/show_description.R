@@ -14,7 +14,7 @@
 #' @rdname show_description
 #'
 #' @export
-show_description <- function(package = "cpnr", tutorial){
+show_description <- function(tutorial, package = "cpnr"){
   tutorials_dir <- system.file("tutorials", package = package)
 
   tutorial_folders <- list.dirs(tutorials_dir, full.names = TRUE,
