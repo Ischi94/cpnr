@@ -1,5 +1,5 @@
 ---
-title: "my-vignette"
+title: "cpnr: Tutorials for conservation paleobiology"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{my-vignette}
@@ -17,3 +17,4 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(cpnr)
 ```
+
