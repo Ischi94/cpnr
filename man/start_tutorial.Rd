@@ -22,8 +22,17 @@ A web browser will be started automatically to view the document.
 Note that, when finished, the running tutorial needs to be stopped
 by clicking on the stop symbol in the R console.
 }
+\section{Warning}{
+
+Before running \code{start_tutorial}, make sure to have all package
+dependencies installed. You can see all dependencies using
+\code{show_dependencies}
+}
+
 \examples{
 \dontrun{
+show_dependencies(tutorial = "first_tutorial")
+
 start_tutorial(tutorial = "first_tutorial")
 }
 

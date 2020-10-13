@@ -5,10 +5,18 @@
 #'
 #' @inheritParams show_description
 #' @param shiny_args Additional arguments to forward to
-#' \href{https://shiny.rstudio.com/reference/shiny/latest/runApp.html}{shiny::runApp}
+#'   \href{https://shiny.rstudio.com/reference/shiny/latest/runApp.html}{shiny::runApp}
+#'
+#'
+#' @section Warning:
+#' Before running \code{start_tutorial}, make sure to have all package
+#' dependencies installed. You can see all dependencies using
+#' \code{show_dependencies}
 #'
 #' @examples
 #' \dontrun{
+#' show_dependencies(tutorial = "first_tutorial")
+#'
 #' start_tutorial(tutorial = "first_tutorial")
 #' }
 #'
