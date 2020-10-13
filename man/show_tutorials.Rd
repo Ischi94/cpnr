@@ -20,3 +20,12 @@ Display which tutorials are currently available in the cpnr package.
 show_tutorials()
 
 }
+\seealso{
+\code{show_description} to see the tutorial description and
+\code{show_dependencies} to see all dependencies needed to run a tutorial.
+
+Other show functions: 
+\code{\link{show_dependencies}()},
+\code{\link{show_description}()}
+}
+\concept{show functions}

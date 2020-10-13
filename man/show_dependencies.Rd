@@ -22,3 +22,12 @@ Display the package dependencies of the specified tutorial in the cpnr package.
 show_dependencies(tutorial = "first_tutorial")
 
 }
+\seealso{
+\code{show_description} to see the tutorial description and
+\code{show_tutorials} to see all available tutorials.
+
+Other show functions: 
+\code{\link{show_description}()},
+\code{\link{show_tutorials}()}
+}
+\concept{show functions}

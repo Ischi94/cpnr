@@ -7,6 +7,11 @@
 #' @examples
 #' show_tutorials()
 #'
+#' @family show functions
+#'
+#' @seealso \code{show_description} to see the tutorial description and
+#' \code{show_dependencies} to see all dependencies needed to run a tutorial.
+#'
 #' @return \code{show_tutorials} will return a \code{data.frame} containing
 #' "title" and "description".
 #'

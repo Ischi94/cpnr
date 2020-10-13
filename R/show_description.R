@@ -8,6 +8,11 @@
 #' @examples
 #' show_description(tutorial = "first_tutorial")
 #'
+#' @family show functions
+#'
+#' @seealso \code{show_tutorials} to see all available tutorials and
+#' \code{show_dependencies} to see all dependencies needed to run a tutorial.
+#'
 #' @return \code{show_description} will return a \code{character} string with a
 #' detailed description of the focal tutorial.
 #'

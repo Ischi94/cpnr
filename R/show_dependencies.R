@@ -8,6 +8,11 @@
 #' @examples
 #' show_dependencies(tutorial = "first_tutorial")
 #'
+#' @family show functions
+#'
+#' @seealso \code{show_description} to see the tutorial description and
+#' \code{show_tutorials} to see all available tutorials.
+#'
 #' @return \code{show_dependencies} will return a \code{character} string with all
 #' package dependencies
 #'
