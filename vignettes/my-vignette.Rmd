@@ -1,8 +1,9 @@
 ---
-title: "cpnr: Tutorials for conservation paleobiology"
+title: "Introduction to cpnr"
+author: Gregor Mathes
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{my-vignette}
+  %\VignetteIndexEntry{Introduction to cpnr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,7 +15,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, include = FALSE}
 library(cpnr)
 ```
 
+# cpnr: Tutorials for conservation paleobiology  
+  
+The [Conservation Paleobiology Network (CPN)](https://conservationpaleorcn.org/) aims to transform conservation paleobiology into an applied science that informs conservation and restoration efforts. The project is envisioned as a grass-roots effort to develop strategies for communicating geohistorical data to stakeholder groups.  
+  
+To facilitate interdisciplinary conservation work, the CPN now offers tutorials. These will cover various topics starting at an introductory level and aim to show students and scientists how to process geohistorical data. This document shows how to use the `cpnr` package and how to start a tutorial. 

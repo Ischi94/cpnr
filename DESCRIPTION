@@ -4,7 +4,7 @@ Title: What the Package Does (Title Case)
 Version: 0.0.0.9000
 Authors@R:
     person("Gregor", "Mathes", email = "gregor.mathes@uni-bayreuth.de", 
-    role = c("aut", "cre"), orcid = "https://orcid.org/0000-0002-2788-1173")
+    role = c("aut", "cre"))
 Description: This package aims to make tutorials for conservation paleobiology 
     accessible for all, using R as an API. Tutorials were produced within the 
     CPN community (Conservation Paleobiology Network) and maintained by the 
