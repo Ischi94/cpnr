@@ -34,6 +34,24 @@ that we recommend the usage of Rstudio, which you can download
 free and open source, and the R community is welcoming and very
 inclusive.
 
+### New to R
+
+Here are some additional useful links if you are new to the R
+programming environment:
+
+-   [Introduction to R
+    (manual)](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)  
+-   [R for data science (book)](https://r4ds.had.co.nz/index.html)  
+-   [Data visualisations with R (book)](https://ggplot2-book.org/)
+
+### Why Github?
+
+You might be familiar with installing packages from CRAN (the
+Comprehensive R Archive Network) in R. To install this package, you need
+to go a different route, as you will see below. Github allows us to
+provide real time access to our tutorials, as you will access the
+development version of the `cpnr` package.
+
 ## How to start
 
 The `cpnr` package provides interactive tutorials that can be accessed
@@ -41,11 +59,32 @@ via R. For this, one needs to have the package installed and read into
 memory. To install the package from github, we can use the `devtools`
 package:
 
-``` r
-# check if you have devtools installed, otherwise run the following code:
-# install.packages("devtools")
+### Install devtools
 
-# install cpnr
+The `devtools` package is a tool that can be used to access packages
+from Github. It needs to be installed in order to access the `cpnr`
+package. You can check whether `devtools` is already installed by
+running the following command:
+
+``` r
+"devtools" %in% rownames(installed.packages())
+```
+
+If the previous command returned `TRUE`, you’re ready to go. If
+`devtools` is not installed, it will return `FALSE` and we need to
+install it from CRAN with the following command:
+
+``` r
+install.packages("devtools")
+```
+
+### Install cpnr
+
+With `devtools` installed to your local device, we are now ready to
+install the `cpnr` package from Github using
+`devtools::install_github()` function:
+
+``` r
 devtools::install_github("Ischi94/cpnr")
 ```
 
