@@ -37,12 +37,11 @@ inclusive.
 ### New to R
 
 Here are some additional useful links if you are new to the R
-programming environment:
-
--   [Introduction to R
-    (manual)](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)  
--   [R for data science (book)](https://r4ds.had.co.nz/index.html)  
--   [Data visualisations with R (book)](https://ggplot2-book.org/)
+programming environment:  
+\* [Introduction to R
+(manual)](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)  
+\* [R for data science (book)](https://r4ds.had.co.nz/index.html)  
+\* [Data visualisations with R (book)](https://ggplot2-book.org/)
 
 ### Why Github?
 
@@ -81,7 +80,7 @@ install.packages("devtools")
 ### Install cpnr
 
 With `devtools` installed to your local device, we are now ready to
-install the `cpnr` package from Github using
+install the `cpnr` package from Github using the
 `devtools::install_github()` function:
 
 ``` r
@@ -165,5 +164,9 @@ and open it in a browser:
 start_tutorial(tutorial = "first_tutorial")
 ```
 
-Make sure to end the tutorial with the stop button in the R console when
-you are done.
+### End the tutorial
+
+When you are done with a tutorial, close the tab in your browser and
+return to RStudio. Here you can just press the Esc button to end the
+tutorial. You could also click on the red Stop button in the upper right
+corner of the console.
