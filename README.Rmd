@@ -97,14 +97,14 @@ The training-series group of the CPN will add new tutorials to the package from 
 show_tutorials()
 ```  
   
-There are currently two (dummy) tutorials in the package. The `show_tutorials` call returns a dataframe with the title of the tutorial and a short description. To get further information on the tutorial, and to subsequently run it, the title of the tutorial is needed.  
+There are currently one actual and one dummy tutorials in the package. The `show_tutorials` call returns a dataframe with the title of the tutorial and a short description. To get further information on the tutorial, and to subsequently run it, the title of the tutorial is needed.  
   
 ### Further details  
   
 If the short description returned from `show_tutorials` is not sufficient for you to see what the tutorial contains, you can access a more detailed description via `show_description`. As mentioned above, we need the tutorial name as an argument for the function:  
   
 ```{r show_description}
-show_description(tutorial = "first_tutorial")
+show_description(tutorial = "divdyn")
 ```  
   
 ### What you need  
@@ -112,14 +112,14 @@ show_description(tutorial = "first_tutorial")
 Each tutorial relies on various packages that might not be installed on your device. Running the tutorial without these packages will fail. It is therefore necessary to check which packages are needed to run the tutorial, and to install them if necessary.  
   
 ```{r show_dependencies}
-show_dependencies(tutorial = "first_tutorial")
+show_dependencies(tutorial = "divdyn")
 ```  
   
 To load all these dependencies needed to run a tutorial, and to install the missing ones, you can run `load_depencies`:  
   
 ```{r load_dependencies, eval=FALSE}
 # get dependencies
-packages <- show_dependencies(tutorial = "first_tutorial")
+packages <- show_dependencies(tutorial = "divdyn")
 
 # load or install them
 load_dependencies(packages = packages)
@@ -130,7 +130,7 @@ load_dependencies(packages = packages)
 Now you should know the name of the tutorial you want to run and what it does based on the description. Further, you have loaded and installed all dependencies needed to run the tutorial. Now you are ready to run it. The `start_tutorial` function will initiate the interactive tutorial and open it in a browser:  
   
 ```{r start_tutorial, eval=FALSE}
-start_tutorial(tutorial = "first_tutorial")
+start_tutorial(tutorial = "divdyn")
 ```  
   
 ### End the tutorial  

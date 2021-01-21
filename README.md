@@ -106,16 +106,17 @@ available, you can use the `show_tutorials` function:
 ``` r
 show_tutorials()
 #> # A tibble: 2 x 2
-#>   title           description    
-#>   <chr>           <chr>          
-#> 1 first_tutorial  Short statement
-#> 2 second_tutorial Just for trial
+#>   title          description         
+#>   <chr>          <chr>               
+#> 1 divdyn         Fossil data analysis
+#> 2 first_tutorial Short statement
 ```
 
-There are currently two (dummy) tutorials in the package. The
-`show_tutorials` call returns a dataframe with the title of the tutorial
-and a short description. To get further information on the tutorial, and
-to subsequently run it, the title of the tutorial is needed.
+There are currently one actual and one dummy tutorials in the package.
+The `show_tutorials` call returns a dataframe with the title of the
+tutorial and a short description. To get further information on the
+tutorial, and to subsequently run it, the title of the tutorial is
+needed.
 
 ### Further details
 
@@ -125,8 +126,8 @@ more detailed description via `show_description`. As mentioned above, we
 need the tutorial name as an argument for the function:
 
 ``` r
-show_description(tutorial = "first_tutorial")
-#> [1] "Short statement. This is just a trial to see how much of this description gets printed in the end. This document is aimed to introduce the possibilities of an interactive tutorial using `rmarkdown` and the `learnr` package. We can embed code chunks from both r and python, making this format extremely versatile. "
+show_description(tutorial = "divdyn")
+#> [1] "Fossil data analysis. This tutorial is aimed to introduce the `divDyn` package and its applications to data from the fossil record. In particular, you learn how to calculate taxonomic richness, extinction and origination rates from time‐binned fossil data using  state‐of‐the‐art methodology"
 ```
 
 ### What you need
@@ -137,8 +138,8 @@ is therefore necessary to check which packages are needed to run the
 tutorial, and to install them if necessary.
 
 ``` r
-show_dependencies(tutorial = "first_tutorial")
-#> [1] "knitr"     "learnr"    "rmarkdown" "shiny"
+show_dependencies(tutorial = "divdyn")
+#> [1] "divDyn"    "knitr"     "learnr"    "rmarkdown" "shiny"
 ```
 
 To load all these dependencies needed to run a tutorial, and to install
@@ -146,7 +147,7 @@ the missing ones, you can run `load_depencies`:
 
 ``` r
 # get dependencies
-packages <- show_dependencies(tutorial = "first_tutorial")
+packages <- show_dependencies(tutorial = "divdyn")
 
 # load or install them
 load_dependencies(packages = packages)
@@ -161,7 +162,7 @@ it. The `start_tutorial` function will initiate the interactive tutorial
 and open it in a browser:
 
 ``` r
-start_tutorial(tutorial = "first_tutorial")
+start_tutorial(tutorial = "divdyn")
 ```
 
 ### End the tutorial
