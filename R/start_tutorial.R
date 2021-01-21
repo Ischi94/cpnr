@@ -27,17 +27,19 @@
 #' by clicking on the stop symbol in the R console.
 #'
 #' @export
-start_tutorial <- function( tutorial, package = "cpnr", shiny_args = NULL){
+start_tutorial <- function(tutorial, package = "cpnr", shiny_args = NULL){
+
   tutorials_dir <- system.file("tutorials", package = package)
 
   tutorial_folders <- list.dirs(tutorials_dir, full.names = TRUE,
                                 recursive = FALSE)
 
-  dir_rmd_files <- dir(tutorial_folders, pattern = "\\.Rmd$", recursive = FALSE,
+  dir_rmd_file <- dir(tutorial_folders, pattern = paste0(tutorial, ".Rmd$"), recursive = FALSE,
                        full.names = TRUE)
 
-  if (is.null(shiny_args))
+  if (is.null(shiny_args)) {
     shiny_args <- list()
+  }
 
   if (is.null(shiny_args$launch.browser)) {
     shiny_args$launch.browser <-
@@ -48,8 +50,7 @@ start_tutorial <- function( tutorial, package = "cpnr", shiny_args = NULL){
     if (!identical(Sys.getenv("SHINY_PORT", ""), "")) {
       withr::local_envvar(c(RMARKDOWN_RUN_PRERENDER = "0"))
     }
-    rmarkdown::run(file = NULL, dir = tutorial_folders, shiny_args = shiny_args,
-                   default_file = paste0(tutorial, ".Rmd"))
+    rmarkdown::run(file = dir_rmd_file, shiny_args = shiny_args)
   })
 }
 
