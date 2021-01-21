@@ -20,6 +20,9 @@
 #'
 #' @export
 show_description <- function(tutorial, package = "cpnr"){
+
+  title <- NULL
+
   tutorials_dir <- system.file("tutorials", package = package)
 
   tutorial_folders <- list.dirs(tutorials_dir, full.names = TRUE,
@@ -28,22 +31,22 @@ show_description <- function(tutorial, package = "cpnr"){
   dir_rmd_files <- dir(tutorial_folders, pattern = "\\.Rmd$", recursive = FALSE,
                        full.names = TRUE)
 
-  yaml_front_matter <- data.frame(tut_title = character(length(dir_rmd_files)),
+  yaml_front_matter <- data.frame(title = character(length(dir_rmd_files)),
                                   description = character(length(dir_rmd_files)))
 
   for (i in 1:length(dir_rmd_files)) {
     yaml_dummy <- rmarkdown::yaml_front_matter(dir_rmd_files[i])
-    yaml_front_matter[i, 1] <- yaml_dummy$tut_title
+    yaml_front_matter[i, 1] <- yaml_dummy$title
     yaml_front_matter[i, 2] <- yaml_dummy$description
   }
 
   yaml_front_matter <- tibble::as_tibble(yaml_front_matter)
 
-  if (tutorial %in% yaml_front_matter$tut_title == FALSE) {
+  if (tutorial %in% yaml_front_matter$title == FALSE) {
     return(paste0("No tutorial found with name: ", tutorial))
   }
 
-  yaml_front_matter <- dplyr::filter(yaml_front_matter, tut_title == tutorial)
+  yaml_front_matter <- dplyr::filter(yaml_front_matter, title == tutorial)
 
   yaml_front_matter <- dplyr::select(yaml_front_matter, description)
 
