@@ -1,5 +1,5 @@
 ---
-title: "divDyn"
+title: "divDyn Intro"
 output: learnr::tutorial
 runtime: shiny_prerendered
 description: "Fossil data analysis. This tutorial is aimed to introduce the `divDyn` package and its applications to data from the fossil record. In particular, you learn how to calculate taxonomic richness, extinction and origination rates from time‐binned fossil data using  state‐of‐the‐art methodology"
@@ -19,6 +19,8 @@ This tutorial is aimed to introduce the `divDyn` package and its applications to
   
 ## The `divDyn` package  
   
+![](https://www.evolv-ed.net/post/divdyn-basic-corals/featured_hue1a0c1291a710e86888c93261ce28f9c_1683994_720x0_resize_lanczos_2.png)  
+
 `divDyn` was created by [Ádám Kocsis](https://www.gzn.nat.fau.de/palaeontologie/team/wissenschaftler/kocsis/) to ensure traceability, reproducibility and comparability of quantitative palaeobiological studies. To get a basic introduction to the package, please read the abstract of the paper [The r package divDyn for quantifying diversity dynamics using fossil sampling data](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13161), which accompanies the package. I would even recommend to read the whole paper, as it is a magnificent guide to working with fossil data itself. After reading through the abstract, and skimming through the paper, can you answer the following questions? Note that some questions allow multiple selection.  
   
 
@@ -93,7 +95,7 @@ bsFull <- binstat(
 
 The code above calculates sampling parameters for the data set `corals` on genus level using geologic stages from each collection using the respective reference. Can you change the call so that we calculate the parameters on family level, instead of genus level?  
   
-**Hint: You might want to look up the column name in the coral data set, that specifies the family names. Just look at the call str(corals) above.**  
+*Hint: You might want to look up the column name in the coral data set, that specifies the family names. Just look at the call str(corals) above*  
   
 
 ```{r change-level, exercise=TRUE, exercise.eval=FALSE}
@@ -131,7 +133,7 @@ bs <- binstat(
   
 Cool, we now calculated basic sampling summaries for our data set. We saved the summarries in a matrix called `bs`, which we will use for plotting in the next exercise.  
   
-## tsplot()  
+## `tsplot()` 
   
 Plotting these variables is probably better then just looking at the numbers. The package includes a powerful time-scale plotting function that lets you visualize how time is broken down to discrete intervals. But to use it, we first need to load the built-in stage data from `divDyn`.  
   
@@ -196,155 +198,105 @@ tsplot(
 lines(stages$mid, bs$occs)
 ```  
 
+Now can you look at the number of collections, instead of occurrences? Note that you need to look at the details in the `binstat()` description to find which column name refers to the number of collections in each time bin. You can find the description [here](https://www.rdocumentation.org/packages/divDyn/versions/0.8.0/topics/binstat).  
+  
+*Hint: You should change the y-label as well. And don't forget to lower the y-limit, as the current limit is probably too high*  
 
-
-
-
-
-  
-**Videos**  
-  
-We can easily add a video to our file by embedding them in our rmarkdown file:  
-![](https://www.youtube.com/watch?v=YddwkMJG1Jo)  
-  
-This will facilitate many of our tutorials as we can just link to a video on youtube or vimeo for a short introduction to the specific topic.  
-  
-  
-**Images**  
-  
-The same holds for images and such. We can link to images hosted on our server or from the web:  
-  
-```{r image, out.width = '50%', out.height= '30%', fig.align="center"}
-knitr::include_graphics("https://i.redd.it/6jla414oko0z.jpg")
-```  
-  
-  
-**Links**  
-  
-We can, of cause, link to all sources that are available on the web. For example, have you heared about this weird guy doing [stats with extinct critters](https://gregor-mathes.netlify.app/)?  
-  
-## Code chunks  
-  
-The greatest advantage of an interactive tutorial compared to a static html is that one can create exercises with direct evaluation. This is extremely customizable and powerfull (*e.g. tutorials store the various pieces of work done within them such as exercise input and output, answers to questions, etc., and automatically restore it when users revisit them. Locally run tutorials store user work in the local filesystem and tutorials run from a server store user work within the storage provided by the end user’s web browser.*).  
-The end user does not need to have R installed to run the code chunks. 
-
-
-### Simple exercise
-
-Here's a simple exercise with an empty code chunk provided for entering the answer.
-
-*Write the R code required to multiply two with three:*
-
-```{r multiplication, exercise=TRUE}
-
-```  
-  
-  
-### Add a solution  
-  
-We can add a hidden solution button to the exercise chunk.  
-  
-*Now multiply five with three:*  
-
-```{r multiplication2, exercise=TRUE}
-
-```  
-  
-```{r multiplication2-solution}
-5*3
-```
-  
-  
-### Add hints  
-  
-We can give hints for code execution:  
-  
-*Now calculate three to the power of five:*  
-  
-```{r power, exercise=TRUE}
-
-```  
-
-<div id="power-hint">
-**Hint:** The operator for an exponent in R is "^". You can find all R operators [here](https://www.datamentor.io/r-programming/operator/)
-</div>  
-  
-  
-### Mulitple hints   
-  
-Note that we can add multiple hints and open them successively:  
-  
-*Add two vectors, the first one range from 1:2, and the second one from 3:6.* 
-  
-```{r addvector, exercise = TRUE}
-
-```  
-  
-
-```{r addvector-hint-1}
-# we can build vectors in R with calling c()
-# e.g. this is the vector ranging from 1:2: 
-c(1:2) 
-
-# or
-c(1,2)
-
-```
-
-```{r addvector-hint-2}
-# to add vectors, we can use the plus operator. Note that R functions 
-# are vectorized and the length of the shorter vector is therefor recycled: 
-c(1:2) + c(3:6)
-
-```
-
-
-
-### Preset code 
-  
-
-We can already set up some code in the chunks as well, and the user just needs to finish or modify it.  
-
-*Modify the following code to limit the number of rows printed to 5 of the 'mtcars' data set:*  
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
-```
-
-```{r print-limit-hint-1}
-# the head function will do the work for you
-# note that head generally prints 6 rows
-head(mtcars)
-```  
-  
-```{r print-limit-hint-2}
-# set the n argument to 5 to print only 5 rows
-head(mtcars, n = 5)
-``` 
-  
-  
-## Quizzes
-  
-### Quiz
-
-We can include multiple choice questions and quizzes. 
-
-*Answer the following questions to successfully finish the tutorial:*
-
-```{r quiz, echo=FALSE}
-quiz(
-  question("Should you use pie charts in scientific publications?",
-    answer("never", correct = TRUE),
-    answer("sometimes"),
-    answer("never but in bold", correct = TRUE),
-    answer("yes")
-  ),
-  question("How did you like this tutorial? Note that there is only one correct answer",
-    answer("meeh"),
-    answer("good"),
-    answer("great"),
-    answer("awesome!", correct = TRUE)
-  )
+```{r modify-plot2, exercise=TRUE, exercise.eval=FALSE}
+tsplot(
+  stages,
+  boxes = "sys",
+  boxes.col = "systemCol",
+  shading = "series",
+  xlim = c(250, 0),
+  ylim = c(0, 5600),
+  ylab = "Number occurrences"
 )
+lines(stages$mid, bs$occs)
+```  
+  
+
+```{r modify-plot2-solution}
+tsplot(
+  stages,
+  boxes = "sys",
+  boxes.col = "systemCol",
+  xlim = c(250, 0),
+  ylim = c(0, 1200),
+  ylab = "Number collections"
+)
+lines(stages$mid, bs$colls)
+```  
+
+
+It is not surprising that occurrences and collection numbers have the same overall trajectory. As you can see, the sampling of corals is highly volatile over time, with a couple of marked peaks in the late Triassic, Late Jurassic, mid and Late Creteacoues and the Neogene, that we have to take into consideration in some form, when describing the evolution of the group.  
+  
+## `divDyn()` 
+  
+Now that we know how sampling changed over time, we can calculate a lot of diversity, extinction and origination rate series from the dataset with the basic `divDyn()` function. This function requires an occurrence dataset with a taxon (`tax`) and a discrete time (`bin`) columns.  
+  
+```{r, echo=TRUE}
+dd <- divDyn(corals, tax="genus", bin="stg")
 ```
+  
+```{r, echo=TRUE}
+str(dd)
+```  
+  
+The output of this function resembles that of the `binstat()` function. Variables are organized with their names:  
+  
+* Names starting with t- (e.g. t3) are taxon counts  
+* Names starting with div- are diversity estimators    
+* Names starting with ori- and ext- are origination and extinction rate estimators, respectively  
+* Names starting with samp- are measures of sampling completeness  
+  
+The abbreviations are resolved in the help file that can be accessed [here](https://www.rdocumentation.org/packages/divDyn/versions/0.8.0/topics/divDyn). This file also includes all equations that are used to calculate the variables.  
+  
+The most basic way to count richness over time is with range-through diversities (divRT). This is simply just the count of taxa that was supposed to be living in an interval (assuming presence if it was found before and after it, if it is not sampled). You can plot these with:  
+  
+```{r, echo=TRUE}
+tsplot(
+  stages,
+  boxes = "sys",
+  boxes.col = "systemCol",
+  shading = "series",
+  xlim = c(250, 0),
+  ylim = c(0, 300),
+  ylab = "Range-through diversity"
+)
+lines(stages$mid, dd$divRT, lwd=2)
+```  
+  
+Note that diversity in the Cretaceous is comparable to those that corals demonstrated in the Neogene.  
+Now let's plot the per-capita extinction and origination plot. We can combine them by calling another `line()`.  
+```{r, echo=TRUE}
+tsplot(
+  stages,
+  boxes = "sys",
+  boxes.col = "systemCol",
+  shading = "series",
+  xlim = c(250, 0),
+  ylim = c(0, 1),
+  ylab = "Per-capita rate"
+)
+lines(stages$mid, dd$extPC, lwd=2, col = "firebrick")
+lines(stages$mid, dd$oriPC, lwd=2, col = "darkgreen")
+text(85, 0.8, labels = "Extinction", col = "firebrick")
+text(85, 0.7, labels = "Origination", col = "darkgreen")
+```   
+  
+Note that we added a legend using `text()`. Now it's time to play around with richness estimates. Select some variables from the function documentation and plot them on your own.  
+  
+```{r own-plot, exercise=TRUE, exercise.eval=FALSE}
+
+```  
+  
+## Summary  
+  
+This tutorial introduced a core subset of functions of the `divDyn` package. We were able to calculate sampling summaries using `divDyn::binstat()`. As well, we calculated various diversification metrics using `divDyn::divDyn()`. We finally plotted both time series data using `divDyn::tsplot()`. Of cause, the `divDyn` package provides even more functions that are all crucial when working with fossil data. Until then, you can take an own look into the package and play around with it. We will look into these in an other tutorial. Until then, thank you very much for your attendance and please let us know how you find these tutorials.  
+  
+![](https://media2.giphy.com/media/11vGKQM0gsmKOs/200.gif)
+
+
+
 
