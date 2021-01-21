@@ -6,7 +6,7 @@
 #'
 #'
 #' @examples
-#' show_dependencies(tutorial = "first_tutorial")
+#' show_dependencies(tutorial = "divdyn")
 #'
 #' @family show functions
 #'

@@ -6,7 +6,7 @@
 #' @inheritParams show_tutorials
 #'
 #' @examples
-#' show_description(tutorial = "first_tutorial")
+#' show_description(tutorial = "divdyn")
 #'
 #' @family show functions
 #'
