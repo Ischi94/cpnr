@@ -1,5 +1,5 @@
 ---
-title: "divDyn Intro"
+title: "divdyn"
 output: learnr::tutorial
 runtime: shiny_prerendered
 description: "Fossil data analysis. This tutorial is aimed to introduce the `divDyn` package and its applications to data from the fossil record. In particular, you learn how to calculate taxonomic richness, extinction and origination rates from time‐binned fossil data using  state‐of‐the‐art methodology"
@@ -9,7 +9,17 @@ date: "`r Sys.setlocale('LC_TIME', 'C'); paste('Last Update:', format(Sys.time()
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(divDyn)
 knitr::opts_chunk$set(echo = FALSE, fig.dim = c(7, 5))
+
+data(corals)
+bs <- binstat(
+  x = corals,
+  tax = "genus",
+  bin = "stg",
+  coll = "collection_no",
+  ref = "reference_no",
+  duplicates=FALSE)
 ```
 
 
