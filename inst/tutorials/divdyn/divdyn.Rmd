@@ -11,15 +11,6 @@ date: "`r Sys.setlocale('LC_TIME', 'C'); paste('Last Update:', format(Sys.time()
 library(learnr)
 library(divDyn)
 knitr::opts_chunk$set(echo = FALSE, fig.dim = c(7, 5))
-
-data(corals)
-bs <- binstat(
-  x = corals,
-  tax = "genus",
-  bin = "stg",
-  coll = "collection_no",
-  ref = "reference_no",
-  duplicates=FALSE)
 ```
 
 
@@ -89,7 +80,26 @@ We now have access to around 30,000 coral occurrences from the Paleobiology Data
 str(corals)
 ```  
   
-Note that the package provides a number of functions to clean raw fossil data, but these will not be covered in this tutorial. Instead, you can look at the [blogpost](https://www.evolv-ed.net/post/divdyn-basic-corals/) written by Àdàm to see how to do this. All these steps are already done on the `corals` data set.  
+Note that the package provides a number of functions to clean raw fossil data, but these will not be covered in this tutorial. Instead, you can look at the [blogpost](https://www.evolv-ed.net/post/divdyn-basic-corals/) written by Àdàm to see how to do this. All these steps are already done on the `corals` data set. The only thing we will do here is to subset the coral data to the stages 52:95, which correspond to only using post palaeozoic data. There is not much going on with corals before that, so that just makes our calculations easier.  
+  
+```{r, echo=TRUE}
+postPaleozoic <- 52:95
+corals <- subset(corals, stg %in% postPaleozoic)
+```
+
+```{r coral-setup}
+data(corals)
+postPaleozoic <- 52:95
+corals <- subset(corals, postPaleozoic %in% stg)
+bs <- binstat(
+  x = corals,
+  tax = "genus",
+  bin = "stg",
+  coll = "collection_no",
+  ref = "reference_no",
+  duplicates=FALSE)
+```
+
   
 Now we are ready to run the first function. We can get an overview of sampling parameters by running the `binstat()` function, that calculates the occurrence, collection, and reference counts in a single line. This is the general use of the high-level function of the package: you state the occurrence data frame as the first, and then the column names as additional arguments. The column `tax` stands for the taxon names, `bin` for the discrete time bins, `coll` for collection identifiers and `ref` for reference identifiers.  
   
@@ -103,30 +113,45 @@ bsFull <- binstat(
 )
 ```
 
-The code above calculates sampling parameters for the data set `corals` on genus level using geologic stages from each collection using the respective reference. Can you change the call so that we calculate the parameters on family level, instead of genus level?  
+The code above calculates sampling parameters for the data set `corals` on genus level using geologic stages from each collection using the respective reference. However, the output is a bit cryptic as it returns a lot of `NA`'s. The reason for that is that the function calculates a metric for each value in the `stage` data set which is 1 to 95. However, in some of these stages (mostly palaeozoic), we don't have any corals. We can modify the output using the same `postPaleozoic` subsetting vector as above.  
+  
+```{r, echo=TRUE}
+bsFull <- bsFull[postPaleozoic,]
+```
+  
+Now `bsFull` contains only those metrics for stages 52 to 95. We can check that by printing the data frame.  
+  
+```{r, echo=TRUE}
+bsFull
+```
+
+  
+Now it's your turn. Can you change the call so that we calculate the parameters on family level, instead of genus level?  
   
 *Hint: You might want to look up the column name in the coral data set, that specifies the family names. Just look at the call str(corals) above*  
   
 
-```{r change-level, exercise=TRUE, exercise.eval=FALSE}
-binstat(
+```{r change-level, exercise=TRUE, exercise.eval=FALSE, exercise.setup = "coral-setup"}
+bs_fam <- binstat(
   x = corals,
   tax = "genus",
   bin = "stg",
   coll = "collection_no",
   ref = "reference_no"
 ) 
+
+bs_fam[postPaleozoic,]
 ```  
   
 
-```{r change-level-solution}
-binstat(
+```{r change-level-solution, exercise.setup = "coral-setup"}
+bs_fam <- binstat(
   x = corals,
   tax = "family",
   bin = "stg",
   coll = "collection_no",
   ref = "reference_no"
-)
+) 
 ```  
   
 The output of `binstat()` is organized such as the index of the values in the vector match up the bin identifier (e.g. the 60th value is for stg 60). The default setting of the function will output a message about duplicate occurrences. This warns us that there are collections with more than one genus entries in a collection (i.e. more than one species/genus). If you are interested in genus-level analyses, it is probably better to count these as one, which you can do with duplicates=FALSE option.  
@@ -141,7 +166,7 @@ bs <- binstat(
   duplicates=FALSE)
 ```  
   
-Cool, we now calculated basic sampling summaries for our data set. We saved the summarries in a matrix called `bs`, which we will use for plotting in the next exercise.  
+Cool, we now calculated basic sampling summaries for our data set. We saved the summaries in a matrix called `bs`, which we will use for plotting in the next exercise.  
   
 ## `tsplot()` 
   
@@ -182,7 +207,7 @@ lines(stages$mid, bs$occs)
   
 So currently the series are shaded (every other series is highlighted in grey). Some people don't like this look and would prefer no shades (i.e. a cleaner look). Can you find which argument call you have to remove from the `tsplot()` call.  
   
-```{r modify-plot, exercise=TRUE, exercise.eval=FALSE}
+```{r modify-plot, exercise=TRUE, exercise.eval=FALSE, exercise.setup = "coral-setup"}
 tsplot(
   stages,
   boxes = "sys",
@@ -196,7 +221,7 @@ lines(stages$mid, bs$occs)
 ```  
   
 
-```{r modify-plot-solution}
+```{r modify-plot-solution, exercise.setup = "coral-setup"}
 tsplot(
   stages,
   boxes = "sys",
@@ -212,7 +237,7 @@ Now can you look at the number of collections, instead of occurrences? Note that
   
 *Hint: You should change the y-label as well. And don't forget to lower the y-limit, as the current limit is probably too high*  
 
-```{r modify-plot2, exercise=TRUE, exercise.eval=FALSE}
+```{r modify-plot2, exercise=TRUE, exercise.eval=FALSE, exercise.setup = "coral-setup"}
 tsplot(
   stages,
   boxes = "sys",
@@ -226,7 +251,7 @@ lines(stages$mid, bs$occs)
 ```  
   
 
-```{r modify-plot2-solution}
+```{r modify-plot2-solution, exercise.setup = "coral-setup"}
 tsplot(
   stages,
   boxes = "sys",
@@ -243,14 +268,16 @@ It is not surprising that occurrences and collection numbers have the same overa
   
 ## `divDyn()` 
   
-Now that we know how sampling changed over time, we can calculate a lot of diversity, extinction and origination rate series from the dataset with the basic `divDyn()` function. This function requires an occurrence dataset with a taxon (`tax`) and a discrete time (`bin`) columns.  
+Now that we know how sampling changed over time, we can calculate a lot of diversity, extinction and origination rate series from the dataset with the basic `divDyn()` function. This function requires an occurrence dataset with a taxon (`tax`) and a discrete time (`bin`) columns. Note that we again use only those stages, where we have coral occurrences.    
   
 ```{r, echo=TRUE}
 dd <- divDyn(corals, tax="genus", bin="stg")
+
+dd_sub <- subset(dd, stg %in% postPaleozoic)
 ```
   
 ```{r, echo=TRUE}
-str(dd)
+str(dd_sub)
 ```  
   
 The output of this function resembles that of the `binstat()` function. Variables are organized with their names:  
