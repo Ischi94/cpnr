@@ -175,7 +175,8 @@ Plotting these variables is probably better then just looking at the numbers. Th
 ```{r, echo=TRUE}
 data(stages)
 ```  
-
+  
+The data set contains geologic stages from GTS2016 (Ogg et al., 2016). Àdàm will soon add the 2020 time scale in the next update to the `divDyn` package.  
 Now we can use tsplot to create our visualizations. This highly customizable function is built on the basic plot() function, and most of its arguments are inherited. The following function call will draw an empty plot within the past 250 million years, with series-level shading and system-level boxes at the bottom:  
   
 ```{r, echo=TRUE}
