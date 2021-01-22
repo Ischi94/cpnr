@@ -19,7 +19,7 @@ package dependencies
 Display the package dependencies of the specified tutorial in the cpnr package.
 }
 \examples{
-show_dependencies(tutorial = "first_tutorial")
+show_dependencies(tutorial = "divdyn")
 
 }
 \seealso{

@@ -16,7 +16,7 @@ subsequently load it.
 }
 \examples{
 \dontrun{
-packages <- show_dependencies(tutorial = "first_tutorial")
+packages <- show_dependencies(tutorial = "divdyn")
 load_dependencies(packages = packages)
 }
 

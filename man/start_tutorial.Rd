@@ -31,9 +31,9 @@ dependencies installed. You can see all dependencies using
 
 \examples{
 \dontrun{
-show_dependencies(tutorial = "first_tutorial")
+show_dependencies(tutorial = "divdyn")
 
-start_tutorial(tutorial = "first_tutorial")
+start_tutorial(tutorial = "divdyn")
 }
 
 

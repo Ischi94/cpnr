@@ -19,7 +19,7 @@ detailed description of the focal tutorial.
 Display the description of the specified tutorial in the cpnr package.
 }
 \examples{
-show_description(tutorial = "first_tutorial")
+show_description(tutorial = "divdyn")
 
 }
 \seealso{
