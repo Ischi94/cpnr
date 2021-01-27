@@ -10,3 +10,7 @@ test_that("number of returned tutorials match available tutorials", {
   expect_equal(nrow(show_tutorials()), length(dir_rmd_files))
 })
 
+test_that("a tibble is returned", {
+  expect_true(tibble::is_tibble(show_tutorials()))
+})
+
