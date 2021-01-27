@@ -11,6 +11,18 @@ date: "`r Sys.setlocale('LC_TIME', 'C'); paste('Last Update:', format(Sys.time()
 library(learnr)
 library(divDyn)
 knitr::opts_chunk$set(echo = FALSE, fig.dim = c(7, 5))
+
+data(corals)
+postPaleozoic <- 52:95
+corals <- subset(corals, postPaleozoic %in% stg)
+bs <- binstat(
+  x = corals,
+  tax = "genus",
+  bin = "stg",
+  coll = "collection_no",
+  ref = "reference_no",
+  duplicates=FALSE)
+dd <- divDyn(corals, tax="genus", bin="stg")
 ```
 
 
@@ -87,19 +99,6 @@ postPaleozoic <- 52:95
 corals <- subset(corals, stg %in% postPaleozoic)
 ```
 
-```{r coral-setup}
-data(corals)
-postPaleozoic <- 52:95
-corals <- subset(corals, postPaleozoic %in% stg)
-bs <- binstat(
-  x = corals,
-  tax = "genus",
-  bin = "stg",
-  coll = "collection_no",
-  ref = "reference_no",
-  duplicates=FALSE)
-```
-
   
 Now we are ready to run the first function. We can get an overview of sampling parameters by running the `binstat()` function, that calculates the occurrence, collection, and reference counts in a single line. This is the general use of the high-level function of the package: you state the occurrence data frame as the first, and then the column names as additional arguments. The column `tax` stands for the taxon names, `bin` for the discrete time bins, `coll` for collection identifiers and `ref` for reference identifiers.  
   
@@ -131,7 +130,7 @@ Now it's your turn. Can you change the call so that we calculate the parameters 
 *Hint: You might want to look up the column name in the coral data set, that specifies the family names. Just look at the call str(corals) above*  
   
 
-```{r change-level, exercise=TRUE, exercise.eval=FALSE, exercise.setup = "coral-setup"}
+```{r change-level, exercise=TRUE, exercise.eval=FALSE}
 bs_fam <- binstat(
   x = corals,
   tax = "genus",
@@ -144,7 +143,7 @@ bs_fam[postPaleozoic,]
 ```  
   
 
-```{r change-level-solution, exercise.setup = "coral-setup"}
+```{r change-level-solution}
 bs_fam <- binstat(
   x = corals,
   tax = "family",
@@ -208,7 +207,7 @@ lines(stages$mid, bs$occs)
   
 So currently the series are shaded (every other series is highlighted in grey). Some people don't like this look and would prefer no shades (i.e. a cleaner look). Can you find which argument call you have to remove from the `tsplot()` call.  
   
-```{r modify-plot, exercise=TRUE, exercise.eval=FALSE, exercise.setup = "coral-setup"}
+```{r modify-plot, exercise=TRUE, exercise.eval=FALSE}
 tsplot(
   stages,
   boxes = "sys",
@@ -222,7 +221,7 @@ lines(stages$mid, bs$occs)
 ```  
   
 
-```{r modify-plot-solution, exercise.setup = "coral-setup"}
+```{r modify-plot-solution}
 tsplot(
   stages,
   boxes = "sys",
@@ -238,7 +237,7 @@ Now can you look at the number of collections, instead of occurrences? Note that
   
 *Hint: You should change the y-label as well. And don't forget to lower the y-limit, as the current limit is probably too high*  
 
-```{r modify-plot2, exercise=TRUE, exercise.eval=FALSE, exercise.setup = "coral-setup"}
+```{r modify-plot2, exercise=TRUE, exercise.eval=FALSE}
 tsplot(
   stages,
   boxes = "sys",
@@ -252,7 +251,7 @@ lines(stages$mid, bs$occs)
 ```  
   
 
-```{r modify-plot2-solution, exercise.setup = "coral-setup"}
+```{r modify-plot2-solution}
 tsplot(
   stages,
   boxes = "sys",
