@@ -13,6 +13,7 @@ library(divDyn)
 knitr::opts_chunk$set(echo = FALSE, fig.dim = c(7, 5))
 
 data(corals)
+data(stages)
 postPaleozoic <- 52:95
 corals <- subset(corals, postPaleozoic %in% stg)
 bs <- binstat(
