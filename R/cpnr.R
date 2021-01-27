@@ -51,4 +51,4 @@
 #' @docType package
 #' @name cpnr
 NULL
-#> NULL
+# > NULL

@@ -20,7 +20,6 @@ Display the package dependencies of the specified tutorial in the cpnr package.
 }
 \examples{
 show_dependencies(tutorial = "divdyn")
-
 }
 \seealso{
 \code{show_description} to see the tutorial description and

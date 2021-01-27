@@ -9,17 +9,22 @@ test_that("no matching tutorial warning is returned", {
 
 
 test_that("the correct tutorial description is returned", {
-
   tutorials_dir <- system.file("tutorials", package = "cpnr")
 
-  tutorial_folders <- list.dirs(tutorials_dir, full.names = TRUE,
-                                recursive = FALSE)
+  tutorial_folders <- list.dirs(tutorials_dir,
+    full.names = TRUE,
+    recursive = FALSE
+  )
 
-  dir_rmd_files <- dir(tutorial_folders, pattern = "\\.Rmd$", recursive = FALSE,
-                       full.names = TRUE)
+  dir_rmd_files <- dir(tutorial_folders,
+    pattern = "\\.Rmd$", recursive = FALSE,
+    full.names = TRUE
+  )
 
-  yaml_front_matter <- data.frame(title = character(length(dir_rmd_files)),
-                                  description = character(length(dir_rmd_files)))
+  yaml_front_matter <- data.frame(
+    title = character(length(dir_rmd_files)),
+    description = character(length(dir_rmd_files))
+  )
 
   divdyn_yaml <- dir_rmd_files[grep("divdyn", dir_rmd_files)]
 

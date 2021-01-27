@@ -21,10 +21,9 @@
 #' @export
 load_dependencies <- function(packages) {
   suppressWarnings(
-  for(p in packages){
-    if(!require(p,character.only = TRUE)) utils::install.packages(p)
-    library(p,character.only = TRUE, quietly = TRUE, verbose = FALSE)
-  })
+    for (p in packages) {
+      if (!require(p, character.only = TRUE)) utils::install.packages(p)
+      library(p, character.only = TRUE, quietly = TRUE, verbose = FALSE)
+    }
+  )
 }
-
-

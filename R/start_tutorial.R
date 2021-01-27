@@ -20,19 +20,19 @@
 #' start_tutorial(tutorial = "divdyn")
 #' }
 #'
-#'
 #' @rdname start_tutorial
 #'
 #' @details Note that, when finished, the running tutorial needs to be stopped
 #' by clicking on the stop symbol in the R console.
 #'
 #' @export
-start_tutorial <- function(tutorial, package = "cpnr", shiny_args = NULL){
-
+start_tutorial <- function(tutorial, package = "cpnr", shiny_args = NULL) {
   tutorials_dir <- system.file("tutorials", package = package)
 
-  tutorial_folders <- list.dirs(tutorials_dir, full.names = TRUE,
-                                recursive = FALSE)
+  tutorial_folders <- list.dirs(tutorials_dir,
+    full.names = TRUE,
+    recursive = FALSE
+  )
 
   selected_folder <- tutorial_folders[grepl(tutorial, tutorial_folders)]
 
@@ -50,9 +50,9 @@ start_tutorial <- function(tutorial, package = "cpnr", shiny_args = NULL){
     if (!identical(Sys.getenv("SHINY_PORT", ""), "")) {
       withr::local_envvar(c(RMARKDOWN_RUN_PRERENDER = "0"))
     }
-    rmarkdown::run(file = NULL, dir = selected_folder, shiny_args = shiny_args,
-                   default_file = paste0(tutorial, ".Rmd"))
+    rmarkdown::run(
+      file = NULL, dir = selected_folder, shiny_args = shiny_args,
+      default_file = paste0(tutorial, ".Rmd")
+    )
   })
 }
-
-

@@ -7,7 +7,6 @@
 #'
 #' @examples
 #' show_description(tutorial = "divdyn")
-#'
 #' @family show functions
 #'
 #' @seealso \code{show_tutorials} to see all available tutorials and
@@ -19,20 +18,25 @@
 #' @rdname show_description
 #'
 #' @export
-show_description <- function(tutorial, package = "cpnr"){
-
+show_description <- function(tutorial, package = "cpnr") {
   title <- NULL
 
   tutorials_dir <- system.file("tutorials", package = package)
 
-  tutorial_folders <- list.dirs(tutorials_dir, full.names = TRUE,
-                                recursive = FALSE)
+  tutorial_folders <- list.dirs(tutorials_dir,
+    full.names = TRUE,
+    recursive = FALSE
+  )
 
-  dir_rmd_files <- dir(tutorial_folders, pattern = "\\.Rmd$", recursive = FALSE,
-                       full.names = TRUE)
+  dir_rmd_files <- dir(tutorial_folders,
+    pattern = "\\.Rmd$", recursive = FALSE,
+    full.names = TRUE
+  )
 
-  yaml_front_matter <- data.frame(title = character(length(dir_rmd_files)),
-                                  description = character(length(dir_rmd_files)))
+  yaml_front_matter <- data.frame(
+    title = character(length(dir_rmd_files)),
+    description = character(length(dir_rmd_files))
+  )
 
   for (i in 1:length(dir_rmd_files)) {
     yaml_dummy <- rmarkdown::yaml_front_matter(dir_rmd_files[i])
@@ -54,5 +58,3 @@ show_description <- function(tutorial, package = "cpnr"){
 
   print(description)
 }
-
-

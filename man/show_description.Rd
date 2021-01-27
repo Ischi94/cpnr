@@ -20,7 +20,6 @@ Display the description of the specified tutorial in the cpnr package.
 }
 \examples{
 show_description(tutorial = "divdyn")
-
 }
 \seealso{
 \code{show_tutorials} to see all available tutorials and

@@ -18,7 +18,6 @@ Display which tutorials are currently available in the cpnr package.
 }
 \examples{
 show_tutorials()
-
 }
 \seealso{
 \code{show_description} to see the tutorial description and
