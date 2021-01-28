@@ -124,11 +124,10 @@ show_tutorials()
 #> 1 divdyn Fossil data analysis
 ```
 
-There are currently one actual and one dummy tutorials in the package.
-The `show_tutorials` call returns a dataframe with the title of the
-tutorial and a short description. To get further information on the
-tutorial, and to subsequently run it, the title of the tutorial is
-needed.
+There is currently one tutorial in the package. The `show_tutorials`
+call returns a dataframe with the title of the tutorial and a short
+description. To get further information on the tutorial, and to
+subsequently run it, the title of the tutorial is needed.
 
 ### Further details
 
