@@ -6,6 +6,9 @@ output: github_document
 
   <!-- badges: start -->
 [![R-CMD-check](https://github.com/Ischi94/cpnr/workflows/R-CMD-check/badge.svg)](https://github.com/Ischi94/cpnr/actions)
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+![Package version](https://img.shields.io/github/r-package/v/Ischi94/cpnr)
+![Website Status](https://img.shields.io/github/workflow/status/Ischi94/cpnr/pkgdown)
   <!-- badges: end -->
   
 ```{r, include = FALSE}
