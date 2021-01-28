@@ -1,6 +1,10 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/Ischi94/cpnr/workflows/R-CMD-check/badge.svg)](https://github.com/Ischi94/cpnr/actions)
+<!-- badges: end -->
+
 # cpnr: Interactive tutorials for conservation paleobiology
 
 The [Conservation Paleobiology
@@ -105,11 +109,10 @@ available, you can use the `show_tutorials` function:
 
 ``` r
 show_tutorials()
-#> # A tibble: 2 x 2
-#>   title          description         
-#>   <chr>          <chr>               
-#> 1 divdyn         Fossil data analysis
-#> 2 first_tutorial Short statement
+#> # A tibble: 1 x 2
+#>   title  description         
+#>   <chr>  <chr>               
+#> 1 divdyn Fossil data analysis
 ```
 
 There are currently one actual and one dummy tutorials in the package.
