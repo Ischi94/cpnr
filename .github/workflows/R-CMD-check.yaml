@@ -22,8 +22,8 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - name: Install dependencies
         run: |
-          devtools::install_github("r-lib/withr")
           install.packages(c("remotes", "rcmdcheck"))
+          devtools::install_github("r-lib/withr")
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
       - name: Check
