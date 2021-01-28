@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup, include = FALSE}
-
+library(cpnr)
 ```
 
 # cpnr: Interactive tutorials for conservation paleobiology  
