@@ -1,11 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<p align="center">
+<img width="240" height="278" src="https://raw.githubusercontent.com/Ischi94/cpnr/master/man/figures/logo.png">
+</p>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/Ischi94/cpnr/workflows/R-CMD-check/badge.svg)](https://github.com/Ischi94/cpnr/actions)
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-![Package
+![GitHub R package
 version](https://img.shields.io/github/r-package/v/Ischi94/cpnr)
 ![Website
 Status](https://img.shields.io/github/workflow/status/Ischi94/cpnr/pkgdown)
