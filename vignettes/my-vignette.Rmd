@@ -3,7 +3,7 @@ title: "Quick introduction to cpnr"
 author: Gregor Mathes
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to cpnr}
+  %\VignetteIndexEntry{Quick introduction to cpnr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
