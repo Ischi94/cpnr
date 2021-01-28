@@ -22,7 +22,8 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck", "withr"))
+          options(repos="https://CRAN.R-project.org")
+          install.packages(c("remotes", "rcmdcheck"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
       - name: Check
