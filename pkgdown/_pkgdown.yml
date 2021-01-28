@@ -1,13 +1,13 @@
 template:
   params:
     bootswatch: cosmo
-
 home:
   title: Interactive CPN tutorials
   description: Run interactive tutorials from the Conservation Paleobiology Network (CPN).
-
 authors:
   Gregor Mathes:
     href: https://gregor-mathes.netlify.app/
-
 url: https://ischi94.github.io/cpnr/
+opengraph:
+  image:
+    src: "https://raw.githubusercontent.com/Ischi94/cpnr/master/man/figures/logo.png"
