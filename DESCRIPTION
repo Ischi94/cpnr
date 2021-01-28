@@ -19,7 +19,7 @@ Imports:
     rmarkdown,
     dplyr,
     renv,
-    withr (<= 2.4.0),
+    withr,
     utils
 RoxygenNote: 7.1.1
 Suggests: 
