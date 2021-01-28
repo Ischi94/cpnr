@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ischi94.github.io/cpnr//index.html</loc>
+  </url>
+  <url>
+    <loc>https://ischi94.github.io/cpnr//reference/cpnr.html</loc>
+  </url>
+  <url>
+    <loc>https://ischi94.github.io/cpnr//reference/load_dependencies.html</loc>
+  </url>
+  <url>
+    <loc>https://ischi94.github.io/cpnr//reference/show_dependencies.html</loc>
+  </url>
+  <url>
+    <loc>https://ischi94.github.io/cpnr//reference/show_description.html</loc>
+  </url>
+  <url>
+    <loc>https://ischi94.github.io/cpnr//reference/show_tutorials.html</loc>
+  </url>
+  <url>
+    <loc>https://ischi94.github.io/cpnr//reference/start_tutorial.html</loc>
+  </url>
+  <url>
+    <loc>https://ischi94.github.io/cpnr//articles/my-vignette.html</loc>
+  </url>
+</urlset>
