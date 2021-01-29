@@ -1,6 +1,7 @@
 template:
   params:
     bootswatch: cosmo
+    ganalytics: UA-185894975-2
 home:
   title: Interactive CPN tutorials
   description: Run interactive tutorials from the Conservation Paleobiology Network (CPN).
