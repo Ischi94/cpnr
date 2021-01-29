@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   my-vignette: my-vignette.html
-last_built: 2021-01-28T15:44Z
+last_built: 2021-01-29T08:51Z
 urls:
   reference: https://ischi94.github.io/cpnr//reference
   article: https://ischi94.github.io/cpnr//articles
