@@ -182,3 +182,4 @@ When you are done with a tutorial, close the tab in your browser and
 return to RStudio. Here you can just press the Esc button to end the
 tutorial. You could also click on the red Stop button in the upper right
 corner of the console.
+A line I wrote on my local computer  
